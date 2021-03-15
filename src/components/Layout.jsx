@@ -3,8 +3,8 @@ import Head from 'next/head'
 const Layout = ({ children }) => {
 	const title = 'WRITE RACE - Mirror'
 	const description = "In Mirror's $WRITE Race, Twitter users compete for votes to receive a Mirror invite. The real race, however, is actually writing on your newly-earned Mirror publication."
-	const url = 'https://mirror-race.m1guelpf.me/'
-	const image = 'https://mirror-race.m1guelpf.me/social.jpg'
+	const url = 'https://write-race.m1guelpf.me/'
+	const image = 'https://write-race.m1guelpf.me/social.jpg'
 
 	return (
 		<>
