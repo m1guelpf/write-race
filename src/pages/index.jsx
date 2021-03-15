@@ -1,5 +1,6 @@
 import { DotsHorizontalOutline, SearchOutline } from 'heroicons-react'
 import { useState } from 'react'
+import Layout from '../components/Layout'
 import RaceLogo from '../components/RaceLogo'
 import client from '../lib/client'
 import fetchPublicationEntries from '../queries/fetch-publication-entries'
@@ -15,19 +16,19 @@ const Race = ({ publications }) => {
 	}
 
 	return (
-		<div>
+		<Layout>
 			<iframe style={{ zIndex: -1 }} className="absolute top-0 inset-x-0 w-full h-1/3" src="https://mirror.xyz/race/background" />
 			<div className="relative z-1 h-screen w-full" style={{ background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 30%)' }}>
 				<div className="flex flex-col items-center justify-center mt-24">
-					<RaceLogo className="block overflow-visible w-96" />
-					<div className="my-10 bg-white shadow max-w-2xl w-full rounded-lg">
+					<RaceLogo className="block overflow-visible w-5/6 sm:w-96" />
+					<div className="my-10 bg-white shadow sm:max-w-2xl w-full sm:rounded-lg">
 						<div className="py-4 px-4 border-b">
 							<div className="flex items-center justify-between mb-6">
 								<div className="flex items-center space-x-4">
-									<div className={`w-14 h-14 rounded-full bg-contain ${isOpen ? '' : 'bg-gray-200 animate-pulse'}`} style={{ backgroundImage: isOpen ? 'url(https://miguelpiedrafita.com/images/_site/logo.png)' : '' }} />
-									<span className={`font-medium text-2xl ${isOpen ? 'text-gray-800' : 'text-transparent bg-gray-200 rounded-lg animate-pulse'}`}>@m1guelpf</span>
+									<div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-contain ${isOpen ? '' : 'bg-gray-200 animate-pulse'}`} style={{ backgroundImage: isOpen ? 'url(https://miguelpiedrafita.com/images/_site/logo.png)' : '' }} />
+									<span className={`font-medium text-xl sm:text-2xl ${isOpen ? 'text-gray-800' : 'text-transparent bg-gray-200 rounded-lg animate-pulse'}`}>@m1guelpf</span>
 								</div>
-								<p className={`font-medium text-xl ${isOpen ? 'text-blue-600' : 'text-gray-600'}`}>{isOpen ? '10' : ''}0 $MIGUEL</p>
+								<p className={`font-medium text-lg sm:text-xl ${isOpen ? 'text-blue-600' : 'text-gray-600'}`}>{isOpen ? '10' : ''}0 $MIGUEL</p>
 							</div>
 							{/* <div class="mb-4 flex flex-col justify-between items-center h-64 text-lg font-medium tracking-tight leading-7 text-center p-6 rounded-lg bg-blue-500">
 								<div className="mt-14">
@@ -81,7 +82,7 @@ const Race = ({ publications }) => {
 							</div>
 						</div>
 						<div className="py-4 px-4 flex items-center justify-between border-b">
-							<p className="text-2xl font-semibold">Round 1</p>
+							<p className="text-2xl font-semibold">Round ∞</p>
 							<div className="flex items-center space-x-3 text-gray-500 text-lg">
 								<p>
 									<span className="font-medium text-gray-600">{publications.length}</span> Publications
@@ -99,7 +100,7 @@ const Race = ({ publications }) => {
 										<div className="ml-4 space-y-0.5">
 											<div className="flex items-center space-x-2">
 												<span className="font-medium text-xl text-gray-800">{publication.displayName}</span>
-												<span className="border px-1.5 py-0.5 rounded-full text-xs text-gray-400 font-medium">{publication.contributor.address.substr(0, 6)}</span>
+												<span className="hidden sm:block border px-1.5 py-0.5 rounded-full text-xs text-gray-400 font-medium">{publication.contributor.address.substr(0, 6)}</span>
 											</div>
 											<p className="text-gray-400 pb-0.5 text-sm">{publication.ensLabel}.mirror.xyz</p>
 										</div>
@@ -116,7 +117,7 @@ const Race = ({ publications }) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</Layout>
 	)
 }
 
